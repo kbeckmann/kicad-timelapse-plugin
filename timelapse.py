@@ -8,23 +8,30 @@ from svg_processor import SvgProcessor
 import sched, time
 capture_interval=10
 
+# Renders back-to-front
 layers = [
-    {
-        'layer': pcbnew.B_SilkS,
-        'name' :'B_SilkS',
-        'color': '#CC00CC',
-        'alpha': 0.8,
-    },
     {
         'layer': pcbnew.B_Cu,
         'name' : 'B_Cu',
-        'color': '#33EE33',
+        'color': '#008400',
         'alpha': 0.5,
     },
     {
-        'layer': pcbnew.F_Cu,
-        'name' : 'F_Cu',
-        'color': '#CC0000',
+        'layer': pcbnew.In4_Cu,
+        'name' : 'In4_Cu',
+        'color': '#000084',
+        'alpha': 0.5,
+    },
+    {
+        'layer': pcbnew.In3_Cu,
+        'name' : 'In3_Cu',
+        'color': '#C20000',
+        'alpha': 0.5,
+    },
+    {
+        'layer': pcbnew.In2_Cu,
+        'name' : 'In2_Cu',
+        'color': '#C200C2',
         'alpha': 0.5,
     },
     {
@@ -34,10 +41,16 @@ layers = [
         'alpha': 0.5,
     },
     {
-        'layer': pcbnew.In2_Cu,
-        'name' : 'In2_Cu',
-        'color': '#C200C2',
+        'layer': pcbnew.F_Cu,
+        'name' : 'F_Cu',
+        'color': '#840000',
         'alpha': 0.5,
+    },
+    {
+        'layer': pcbnew.B_SilkS,
+        'name' :'B_SilkS',
+        'color': '#CC00CC',
+        'alpha': 0.8,
     },
     {
         'layer': pcbnew.F_SilkS,
