@@ -28,6 +28,18 @@ layers = [
         'alpha': 0.5,
     },
     {
+        'layer': pcbnew.In1_Cu,
+        'name' : 'In1_Cu',
+        'color': '#C2C200',
+        'alpha': 0.5,
+    },
+    {
+        'layer': pcbnew.In2_Cu,
+        'name' : 'In2_Cu',
+        'color': '#C200C2',
+        'alpha': 0.5,
+    },
+    {
         'layer': pcbnew.F_SilkS,
         'name' : 'F_SilkS',
         'color': '#00CCCC',
