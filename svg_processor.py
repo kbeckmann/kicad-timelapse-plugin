@@ -31,7 +31,10 @@ class SvgProcessor(object):
 
     def apply_color_transform(self, transform_function):
         # Set fill and stroke on all groups
-        for group in self.svg_node.getElementsByTagName('g'):
+        for group in [
+                *self.svg_node.getElementsByTagName('g'),
+                *self.svg_node.getElementsByTagName('path')
+            ]:
             SvgProcessor._apply_transform(group, {
                 'fill': transform_function,
                 'stroke': transform_function,
