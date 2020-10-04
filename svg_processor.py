@@ -68,6 +68,13 @@ class SvgProcessor(object):
 
         parent.appendChild(wrapper)
 
+    def set_title(self, title):
+        node = self.svg_node.getElementsByTagName("title")[0]
+        self.svg_node.removeChild(node)
+        node = self.dom.createElement("title")
+        node.appendChild(self.dom.createTextNode(title))
+        self.svg_node.appendChild(node)
+
     @staticmethod
     def _apply_transform(node, values):
         if 'style' not in node.attributes.keys():

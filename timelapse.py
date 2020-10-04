@@ -164,7 +164,16 @@ class SimplePlugin(pcbnew.ActionPlugin):
         for processed_svg_file, processor in processed_svg_files:
             output_processor.import_groups(processor)
             os.remove(processed_svg_file)
+        output_processor.set_title(board_filename_noex)
         output_processor.write(final_svg)
+
+        # Remove the exported file if there were no new changes
+        if timelapse_number != 1:
+            with open(os.path.join(timelapse_folder_path, board_filename_noex+'-'+str(timelapse_number - 1).zfill(4)+'.svg')) as old_file:
+                with open(final_svg) as new_file:
+                    if old_file.read() == new_file.read():
+                        timelapse_number -= 1
+                        os.remove(final_svg)
 
         return True
 
